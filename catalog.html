@@ -605,7 +605,8 @@
 
 
 <script>
-
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
  const categoryFilter = document.getElementById("categoryFilter");
 const brandFilter = document.getElementById("brandFilter");
 const shapeFilter = document.getElementById("shapeFilter");
@@ -620,9 +621,14 @@ let currentPage = 1;
 
 function filterProducts() {
 
-    const category = categoryFilter.value;
-    const brand = brandFilter.value;
-    const shape = shapeFilter.value;
+   const category = categoryFilter.value;
+const brand = brandFilter.value;
+const shape = shapeFilter.value;
+
+const search =
+    searchInput.value
+        .trim()
+        .toLowerCase();
 
     const min =
         minPrice.value === ""
@@ -647,6 +653,13 @@ function filterProducts() {
         const productShape =
             product.dataset.shape;
 
+        const productText =
+    product.innerText.toLowerCase();
+
+const searchMatch =
+    search === "" ||
+    productText.includes(search);
+        
         const productPrice =
             Number(product.dataset.price);
 
@@ -667,11 +680,12 @@ function filterProducts() {
             productPrice <= max;
 
         if (
-            categoryMatch &&
-            brandMatch &&
-            shapeMatch &&
-            priceMatch
-        ) {
+    categoryMatch &&
+    brandMatch &&
+    shapeMatch &&
+    priceMatch &&
+    searchMatch
+) {
             matchingProducts.push(product);
         }
     });
@@ -788,7 +802,28 @@ filterButton.addEventListener(
         filterProducts();
     }
 );
+searchButton.addEventListener(
+    "click",
+    function() {
 
+        currentPage = 1;
+
+        filterProducts();
+    }
+);
+
+searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            currentPage = 1;
+
+            filterProducts();
+        }
+    }
+);
 
 const urlParams =
     new URLSearchParams(
