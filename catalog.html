@@ -573,155 +573,208 @@
 
 <script>
 
-    const categoryFilter =
-        document.getElementById("categoryFilter");
+ const categoryFilter = document.getElementById("categoryFilter");
+const brandFilter = document.getElementById("brandFilter");
+const shapeFilter = document.getElementById("shapeFilter");
+const minPrice = document.getElementById("minPrice");
+const maxPrice = document.getElementById("maxPrice");
+const filterButton = document.getElementById("filterButton");
+const products = document.querySelectorAll(".product");
+const noProducts = document.getElementById("noProducts");
 
-    const brandFilter =
-        document.getElementById("brandFilter");
+const productsPerPage = 12;
+let currentPage = 1;
 
-    const shapeFilter =
-        document.getElementById("shapeFilter");
+function filterProducts() {
 
-    const minPrice =
-        document.getElementById("minPrice");
+    const category = categoryFilter.value;
+    const brand = brandFilter.value;
+    const shape = shapeFilter.value;
 
-    const maxPrice =
-        document.getElementById("maxPrice");
+    const min =
+        minPrice.value === ""
+            ? 0
+            : Number(minPrice.value);
 
-    const filterButton =
-        document.getElementById("filterButton");
+    const max =
+        maxPrice.value === ""
+            ? Infinity
+            : Number(maxPrice.value);
 
-    const products =
-        document.querySelectorAll(".product");
+    const matchingProducts = [];
 
-    const noProducts =
-        document.getElementById("noProducts");
+    products.forEach(function(product) {
 
+        const productCategory =
+            product.dataset.category;
 
-    function filterProducts() {
+        const productBrand =
+            product.dataset.brand;
 
-        const category =
-            categoryFilter.value;
+        const productShape =
+            product.dataset.shape;
 
-        const brand =
-            brandFilter.value;
+        const productPrice =
+            Number(product.dataset.price);
 
-        const shape =
-            shapeFilter.value;
+        const categoryMatch =
+            category === "all" ||
+            productCategory.split(" ").includes(category);
 
+        const brandMatch =
+            brand === "all" ||
+            productBrand === brand;
 
-        const min =
-            minPrice.value === ""
-                ? 0
-                : Number(minPrice.value);
+        const shapeMatch =
+            shape === "all" ||
+            productShape === shape;
 
+        const priceMatch =
+            productPrice >= min &&
+            productPrice <= max;
 
-        const max =
-            maxPrice.value === ""
-                ? Infinity
-                : Number(maxPrice.value);
-
-
-        let visibleProducts = 0;
-
-
-        products.forEach(function(product) {
-
-            const productCategory =
-                product.dataset.category;
-
-            const productBrand =
-                product.dataset.brand;
-
-            const productShape =
-                product.dataset.shape;
-
-            const productPrice =
-                Number(product.dataset.price);
-
-
-           const categoryMatch =
-    category === "all" ||
-    productCategory.split(" ").includes(category);
-
-
-            const brandMatch =
-                brand === "all" ||
-                productBrand === brand;
-
-
-            const shapeMatch =
-                shape === "all" ||
-                productShape === shape;
-
-
-            const priceMatch =
-                productPrice >= min &&
-                productPrice <= max;
-
-
-            if (
-                categoryMatch &&
-                brandMatch &&
-                shapeMatch &&
-                priceMatch
-            ) {
-
-                product.style.display = "block";
-
-                visibleProducts++;
-
-            } else {
-
-                product.style.display = "none";
-
-            }
-
-        });
-
-
-        if (visibleProducts === 0) {
-
-            noProducts.style.display = "block";
-
-        } else {
-
-            noProducts.style.display = "none";
-
+        if (
+            categoryMatch &&
+            brandMatch &&
+            shapeMatch &&
+            priceMatch
+        ) {
+            matchingProducts.push(product);
         }
+    });
 
-    }
+    products.forEach(function(product) {
+        product.style.display = "none";
+    });
 
-
-    filterButton.addEventListener(
-        "click",
-        filterProducts
-    );
-
-
-    const urlParams =
-        new URLSearchParams(
-            window.location.search
+    const totalPages =
+        Math.ceil(
+            matchingProducts.length /
+            productsPerPage
         );
 
-
-    const categoryFromUrl =
-        urlParams.get("category");
-
-
-    if (
-        categoryFromUrl === "women" ||
-        categoryFromUrl === "men" ||
-        categoryFromUrl === "children"
-    ) {
-
-        categoryFilter.value =
-            categoryFromUrl;
-
+    if (currentPage > totalPages && totalPages > 0) {
+        currentPage = totalPages;
     }
 
+    const start =
+        (currentPage - 1) *
+        productsPerPage;
 
-    filterProducts();
+    const end =
+        start + productsPerPage;
+
+    matchingProducts
+        .slice(start, end)
+        .forEach(function(product) {
+            product.style.display = "block";
+        });
+
+    if (matchingProducts.length === 0) {
+        noProducts.style.display = "block";
+    } else {
+        noProducts.style.display = "none";
+    }
+
+    createPagination(totalPages);
+}
+
+
+function createPagination(totalPages) {
+
+    let pagination =
+        document.getElementById("pagination");
+
+    if (!pagination) {
+
+        pagination =
+            document.createElement("div");
+
+        pagination.id = "pagination";
+
+        pagination.style.textAlign = "center";
+        pagination.style.margin = "30px 0";
+
+        noProducts.parentNode.after(pagination);
+    }
+
+    pagination.innerHTML = "";
+
+    if (totalPages <= 1) {
+        return;
+    }
+
+    for (
+        let page = 1;
+        page <= totalPages;
+        page++
+    ) {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = page;
+
+        button.style.margin = "5px";
+        button.style.padding = "8px 14px";
+        button.style.cursor = "pointer";
+        button.style.borderRadius = "8px";
+        button.style.border = "1px solid #a88b72";
+        button.style.background = "#fffaf5";
+        button.style.color = "#4b3a2f";
+
+        if (page === currentPage) {
+            button.style.fontWeight = "bold";
+        }
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                currentPage = page;
+
+                filterProducts();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        );
+
+        pagination.appendChild(button);
+    }
+}
+
+
+filterButton.addEventListener(
+    "click",
+    function() {
+
+        currentPage = 1;
+        filterProducts();
+    }
+);
+
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const categoryFromUrl =
+    urlParams.get("category");
+
+if (
+    categoryFromUrl === "women" ||
+    categoryFromUrl === "men" ||
+    categoryFromUrl === "children"
+) {
+    categoryFilter.value =
+        categoryFromUrl;
+}
+
+filterProducts();
 
 </script>
 
