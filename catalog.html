@@ -863,6 +863,55 @@ fetch(SHEET_URL)
         const data = JSON.parse(jsonText);
 
         console.log(data);
+    const table = data.table;
+const rows = table.rows;
+
+const sheetProducts = document.getElementById("sheetProducts");
+
+rows.forEach(function(row) {
+    const cells = row.c;
+
+    const model = cells[0]?.v || "";
+    const brand = cells[1]?.v || "";
+    const price = cells[2]?.v || 0;
+    const category = cells[3]?.v || "";
+    const size = cells[4]?.v || "";
+    const shape = cells[5]?.v || "";
+    const availability = cells[6]?.v || "";
+    const photo = cells[7]?.v || "";
+    const photo2 = cells[8]?.v || "";
+    const page = cells[9]?.v || "";
+
+    const card = document.createElement("article");
+    card.className = "product";
+
+    card.dataset.category = category;
+    card.dataset.brand = brand;
+    card.dataset.shape = shape;
+    card.dataset.price = price;
+
+    card.innerHTML = 
+        <div class="product-image">
+            <img src="images/${photo}" alt="${model}">
+        </div>
+
+        <h2>${model}</h2>
+
+        <p><strong>Бренд:</strong> ${brand}</p>
+        <p><strong>Розмір:</strong> ${size}</p>
+        <p><strong>Категорія:</strong> ${category}</p>
+
+        <p class="price">${price} грн</p>
+
+        ${
+            page
+                ? <a href="${page}" class="product-link">Детальніше →</a>
+                : ""
+        }
+    ;
+
+    sheetProducts.appendChild(card);
+});
     })
     .catch(error => {
         console.error("Помилка завантаження таблиці:", error);
