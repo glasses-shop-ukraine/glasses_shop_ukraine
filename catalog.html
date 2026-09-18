@@ -614,14 +614,13 @@ const shapeFilter = document.getElementById("shapeFilter");
 const minPrice = document.getElementById("minPrice");
 const maxPrice = document.getElementById("maxPrice");
 const filterButton = document.getElementById("filterButton");
-const products = document.querySelectorAll(".product");
 const noProducts = document.getElementById("noProducts");
 
 const productsPerPage = 12;
 let currentPage = 1;
 
 function filterProducts() {
-
+const products = document.querySelectorAll(".product");
    const category = categoryFilter.value;
 const brand = brandFilter.value;
 const shape = shapeFilter.value;
@@ -903,8 +902,12 @@ rows.forEach(function(row) {
     (page ? '<a href="' + page + '" class="product-link">Детальніше →</a>' : '');
 
 sheetProducts.appendChild(card);
-    })
-    .catch(error => {
+});
+
+filterProducts();
+
+})
+.catch(error => {
         console.error("Помилка завантаження таблиці:", error);
     });
     </script>
