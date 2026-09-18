@@ -22,6 +22,7 @@
             background: #e8dccb;
             padding: 20px 30px;
             display: flex;
+
             align-items: center;
             justify-content: space-between;
             gap: 20px;
@@ -890,28 +891,26 @@ rows.forEach(function(row) {
     card.dataset.shape = shape;
     card.dataset.price = price;
 
-    card.innerHTML = 
-        <div class="product-image">
-            <img src="images/${photo}" alt="${model}">
-        </div>
+    card.innerHTML =
+    '<div class="product-image">' +
+        '<img src="images/' + photo + '" alt="' + model + '">' +
+    '</div>' +
 
-        <h2>${model}</h2>
+    '<h2>' + model + '</h2>' +
 
-        <p><strong>Бренд:</strong> ${brand}</p>
-        <p><strong>Розмір:</strong> ${size}</p>
-        <p><strong>Категорія:</strong> ${category}</p>
+    '<p><strong>Бренд:</strong> ' + brand + '</p>' +
 
-        <p class="price">${price} грн</p>
+    '<p><strong>Розмір:</strong> ' + size + '</p>' +
 
-        ${
-            page
-                ? <a href="${page}" class="product-link">Детальніше →</a>
-                : ""
-        }
-    ;
+    '<p><strong>Категорія:</strong> ' + category + '</p>' +
 
-    sheetProducts.appendChild(card);
-});
+    '<p class="price">' + price + ' грн</p>' +
+
+    (page
+        ? '<a href="' + page + '" class="product-link">Детальніше →</a>'
+        : '');
+
+sheetProducts.appendChild(card);
     })
     .catch(error => {
         console.error("Помилка завантаження таблиці:", error);
