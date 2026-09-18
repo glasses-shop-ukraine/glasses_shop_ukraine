@@ -9,162 +9,128 @@
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f2ec;
-            color: #171717;
+            background: #f4eee5;
+            color: #4f4035;
         }
 
         header {
-            background: #ebe7df;
-            padding: 18px 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #d8d2c8;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .brand img {
-            width: 65px;
-            height: 65px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .brand-name {
-            font-size: 19px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: #171717;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            opacity: 0.55;
-        }
-
-        .catalog-header {
-            text-align: center;
-            padding: 65px 20px 35px;
-        }
-
-        .catalog-header h1 {
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 12px;
-        }
-
-        .catalog-header p {
-            color: #666158;
-            font-size: 16px;
-        }
-
-        .filters {
-            max-width: 1250px;
-            margin: 0 auto 25px;
-            padding: 25px;
-            background: #ebe7df;
-            border: 1px solid #d8d2c8;
-        }
-
-        .filters-title {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .filter-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .filter-group label {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 7px;
-            color: #555149;
-        }
-
-        select,
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cfc9bf;
-            background: #faf9f6;
-            color: #171717;
-            font-size: 14px;
-            outline: none;
-        }
-
-        select:focus,
-        input:focus {
-            border-color: #171717;
-        }
-
-        .price-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .sorting {
-            max-width: 1250px;
-            margin: 0 auto 25px;
+            background: #e8dccb;
+            padding: 20px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .sorting select {
-            max-width: 250px;
+        .logo img {
+            width: 150px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4f4035;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filters {
+            background: #eadfce;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .filter-group label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        select,
+        input {
+            padding: 10px;
+            border: 1px solid #cbbba5;
+            border-radius: 8px;
+            background: white;
+            color: #4f4035;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #8d7863;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
         }
 
         .products {
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
         .product {
-            background: #faf9f6;
-            border: 1px solid #ded9d0;
-            transition: 0.3s;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: #fffaf4;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 3px 12px rgba(80, 60, 40, 0.12);
         }
 
         .product-image {
-            height: 280px;
-            background: #ffffff;
+            width: 100%;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #f1e9dd;
+            border-radius: 12px;
             overflow: hidden;
+            margin-bottom: 15px;
         }
 
         .product-image img {
@@ -173,109 +139,51 @@
             object-fit: contain;
         }
 
-        .product-info {
-            padding: 20px;
+        .product h2 {
+            font-size: 20px;
+            margin: 10px 0;
         }
 
-        .product-brand {
-            font-size: 13px;
-            color: #777168;
-            margin-bottom: 7px;
+        .product p {
+            margin: 7px 0;
         }
 
-        .product-name {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
-
-        .product-price {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 18px;
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 12px;
         }
 
         .product-link {
-            color: #171717;
+            display: inline-block;
+            margin-top: 15px;
+            color: #6f5a47;
+            font-weight: bold;
             text-decoration: none;
-            font-size: 14px;
-            border-bottom: 1px solid #171717;
-            padding-bottom: 3px;
         }
 
-        .no-products {
-            grid-column: 1 / -1;
+        .product-link:hover {
+            text-decoration: underline;
+        }
+
+        #noProducts {
+            display: none;
             text-align: center;
-            padding: 60px 20px;
-            color: #666158;
-            font-size: 17px;
-        }
-
-        footer {
-            background: #171717;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        footer h3 {
             font-size: 18px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+            padding: 40px;
         }
 
-        footer p {
-            color: #c8c5bf;
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
-        @media (max-width: 900px) {
-            .filter-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .filters,
-            .sorting {
-                margin-left: 20px;
-                margin-right: 20px;
-            }
-        }
-
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             header {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            nav {
-                gap: 18px;
-                flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .catalog-header h1 {
-                font-size: 34px;
+            nav {
+                justify-content: center;
             }
 
-            .filter-row {
-                grid-template-columns: 1fr;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
-            }
-
-            .sorting {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .sorting select {
-                max-width: none;
+            .container {
+                padding: 25px 15px;
             }
         }
     </style>
@@ -285,240 +193,138 @@
 
 <header>
 
-    <div class="brand">
-
+    <a href="index.html" class="logo">
         <img
-            src="Images/logo.jpg"
+            src="images/logo.jpg"
             alt="GLASSES SHOP UKRAINE"
         >
-
-        <div class="brand-name">
-            GLASSES SHOP UKRAINE
-        </div>
-
-    </div>
+    </a>
 
     <nav>
-
-        <a href="index.html">
-            Головна
-        </a>
-
-        <a href="catalog.html">
-            Каталог
-        </a>
-
-        <a href="index.html#about">
-            Про нас
-        </a>
-
-        <a href="index.html#contacts">
-            Контакти
-        </a>
-
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="index.html#about">Про нас</a>
+        <a href="index.html#contacts">Контакти</a>
     </nav>
 
 </header>
 
 
-<section class="catalog-header">
+<main class="container">
 
     <h1>Каталог оправ</h1>
 
-    <p>
-        Оберіть оправу за категорією, брендом, формою та ціною
-    </p>
 
-</section>
+    <div class="filters">
 
+        <div class="filters-row">
 
-<section class="filters">
+            <div class="filter-group">
+                <label for="categoryFilter">Категорія</label>
 
-    <div class="filters-title">
-        Фільтри
-    </div>
-
-    <div class="filter-row">
-
-        <div class="filter-group">
-
-            <label>Категорія</label>
-
-            <select id="categoryFilter">
-
-                <option value="all">
-                    Усі категорії
-                </option>
-
-                <option value="women">
-                    Жіночі оправи
-                </option>
-
-                <option value="men">
-                    Чоловічі оправи
-                </option>
-
-                <option value="children">
-                    Дитячі оправи
-                </option>
-
-            </select>
-
-        </div>
+                <select id="categoryFilter">
+                    <option value="all">Усі оправи</option>
+                    <option value="women">Жіночі оправи</option>
+                    <option value="men">Чоловічі оправи</option>
+                    <option value="children">Дитячі оправи</option>
+                </select>
+            </div>
 
 
-        <div class="filter-group">
+            <div class="filter-group">
+                <label for="brandFilter">Бренд</label>
 
-            <label>Бренд</label>
-
-            <select id="brandFilter">
-
-                <option value="all">
-                    Усі бренди
-                </option>
-
-                <option value="Ovvio">
-                    Ovvio
+                <select id="brandFilter">
+                    <option value="all">Усі бренди</option>
+                    <option value="Ovvio">Ovvio</option>
                     <option value="Di Marca">Di Marca</option>
-                </option>
-
-            </select>
-
-        </div>
+                </select>
+            </div>
 
 
-        <div class="filter-group">
+            <div class="filter-group">
+                <label for="shapeFilter">Форма</label>
 
-            <label>Форма</label>
-
-            <select id="shapeFilter">
-
-                <option value="all">
-                    Усі форми
-                </option>
-
-                <option value="Котяче око">
-                    Котяче око
-                </option>
-
-                <option value="Кругла">
-                    Кругла
-                </option>
-
-                <option value="Квадратна">
-                    Квадратна
-                </option>
-
-                <option value="Прямокутна">
-                    Прямокутна
-                </option>
-
-                <option value="Овальна">
-                    Овальна
-                </option>
-
-                <option value="Авіатор">
-                    Авіатор
-                </option>
-
-            </select>
-
-        </div>
+                <select id="shapeFilter">
+                    <option value="all">Усі форми</option>
+                    <option value="Котяче око">Котяче око</option>
+                    <option value="Кругла">Кругла</option>
+                    <option value="Квадратна">Квадратна</option>
+                    <option value="Прямокутна">Прямокутна</option>
+                    <option value="Овальна">Овальна</option>
+                    <option value="Авіатор">Авіатор</option>
+                </select>
+            </div>
 
 
-        <div class="filter-group">
-
-            <label>Ціна, грн</label>
-
-            <div class="price-row">
-
+            <div class="filter-group">
+                <label for="minPrice">Ціна від</label>
                 <input
                     type="number"
                     id="minPrice"
-                    placeholder="Від"
+                    placeholder="0"
                 >
+            </div>
 
+
+            <div class="filter-group">
+                <label for="maxPrice">Ціна до</label>
                 <input
                     type="number"
                     id="maxPrice"
-                    placeholder="До"
+                    placeholder="10000"
                 >
-
             </div>
+
+
+            <button id="filterButton">
+                Застосувати
+            </button>
 
         </div>
 
     </div>
 
-</section>
+
+    <div class="products">
 
 
-<div class="sorting">
+        <!-- ОПРАВА 1 -->
 
-    <span id="resultCount">
-        Знайдено оправ: 1
-    </span>
+        <article
+            class="product"
+            data-category="women"
+            data-brand="Ovvio"
+            data-shape="Котяче око"
+            data-price="500"
+        >
 
-    <select id="sortFilter">
+            <div class="product-image">
 
-        <option value="default">
-            Сортування
-        </option>
+                <img
+                    src="images/ovvio-1469-c3.jpg"
+                    alt="Ovvio 1469 C3"
+                >
 
-        <option value="cheap">
-            Від дешевших до дорожчих
-        </option>
-
-        <option value="expensive">
-            Від дорожчих до дешевших
-        </option>
-
-        <option value="new">
-            Спочатку нові
-        </option>
-
-    </select>
-
-</div>
-
-
-<section class="products" id="products">
-
-
-    <!-- НАША ПЕРША ОПРАВА -->
-
-    <article
-        class="product"
-        data-category="women"
-        data-brand="Ovvio"
-        data-shape="Котяче око"
-        data-price="500"
-        data-new="1"
-    >
-
-        <div class="product-image">
-
-            <img
-                src="Images/ovvio-1469-c3.jpg"
-                alt="Ovvio 1469 C3"
-            >
-
-        </div>
-
-
-        <div class="product-info">
-
-            <div class="product-brand">
-                Ovvio Perfezione
             </div>
 
-            <div class="product-name">
-                Ovvio 1469 C3
-            </div>
+            <h2>Ovvio 1469 C3</h2>
 
-            <div class="product-price">
+            <p>
+                <strong>Бренд:</strong> Ovvio
+            </p>
+
+            <p>
+                <strong>Розмір:</strong> 54□18-142
+            </p>
+
+            <p>
+                <strong>Категорія:</strong> Жіночі оправи
+            </p>
+
+            <p class="price">
                 500 грн
-            </div>
+            </p>
 
             <a
                 href="product-ovvio-1469.html"
@@ -527,72 +333,60 @@
                 Детальніше →
             </a>
 
-        </div>
+        </article>
 
-    </article>
-<!-- ДРУГАЯ ОПРАВА -->
 
-<article
-    class="product"
-    data-category="women"
-    data-brand="Di Marca"
-    data-shape="Котяче око"
-    data-price="510"
-    data-new="1"
->
+        <!-- ОПРАВА 2 -->
 
-    <div class="product-image">
-
-        <img
-            src="images/di marca p80161 c3.jpg"
-            alt="Di Marca P80161 C3"
+        <article
+            class="product"
+            data-category="women"
+            data-brand="Di Marca"
+            data-shape="Котяче око"
+            data-price="510"
         >
+
+            <div class="product-image">
+
+                <img
+                    src="images/di marca p80161 c3.jpg"
+                    alt="Di Marca P80161 C3"
+                >
+
+            </div>
+
+            <h2>Di Marca P80161 C3</h2>
+
+            <p>
+                <strong>Бренд:</strong> Di Marca
+            </p>
+
+            <p>
+                <strong>Категорія:</strong> Жіночі оправи
+            </p>
+
+            <p class="price">
+                510 грн
+            </p>
+
+            <a
+                href="product-di marca p80161 c3.html"
+                class="product-link"
+            >
+                Детальніше →
+            </a>
+
+        </article>
+
 
     </div>
 
-    <div class="product-info">
 
-        <div class="product-brand">
-            Di Marca
-        </div>
-
-        <div class="product-name">
-            P80161 C3
-        </div>
-
-        <div class="product-price">
-            510 грн
-        </div>
-
-        <a
-            href="product-di marca p80161 c3.html"
-            class="product-link"
-        >
-            Детальніше →
-        </a>
-
+    <div id="noProducts">
+        За заданими параметрами оправ не знайдено.
     </div>
 
-</article>
-
-</section>
-
-
-<footer>
-
-    <h3>
-        GLASSES SHOP UKRAINE
-    </h3>
-
-    <p>
-        Оптика та стильні оправи
-    </p>
-
-    <p>
-        Україна
-    </p>
-
-</footer>
+</main>
 
 
 <script>
@@ -612,14 +406,14 @@
     const maxPrice =
         document.getElementById("maxPrice");
 
-    const sortFilter =
-        document.getElementById("sortFilter");
+    const filterButton =
+        document.getElementById("filterButton");
 
-    const productsContainer =
-        document.getElementById("products");
+    const products =
+        document.querySelectorAll(".product");
 
-    const resultCount =
-        document.getElementById("resultCount");
+    const noProducts =
+        document.getElementById("noProducts");
 
 
     function filterProducts() {
@@ -633,23 +427,23 @@
         const shape =
             shapeFilter.value;
 
+
         const min =
-            Number(minPrice.value) || 0;
+            minPrice.value === ""
+                ? 0
+                : Number(minPrice.value);
+
 
         const max =
-            Number(maxPrice.value) || Infinity;
+            maxPrice.value === ""
+                ? Infinity
+                : Number(maxPrice.value);
 
 
-        const products =
-            Array.from(
-                document.querySelectorAll(".product")
-            );
+        let visibleProducts = 0;
 
 
-        let visibleProducts = [];
-
-
-        products.forEach(product => {
+        products.forEach(function(product) {
 
             const productCategory =
                 product.dataset.category;
@@ -691,9 +485,9 @@
                 priceMatch
             ) {
 
-                product.style.display = "";
+                product.style.display = "block";
 
-                visibleProducts.push(product);
+                visibleProducts++;
 
             } else {
 
@@ -704,119 +498,51 @@
         });
 
 
-        sortProducts(visibleProducts);
+        if (visibleProducts === 0) {
 
+            noProducts.style.display = "block";
 
-        resultCount.textContent =
-            "Знайдено оправ: " +
-            visibleProducts.length;
+        } else {
 
-
-        const oldMessage =
-            document.querySelector(".no-products");
-
-
-        if (oldMessage) {
-            oldMessage.remove();
-        }
-
-
-        if (visibleProducts.length === 0) {
-
-            const message =
-                document.createElement("div");
-
-            message.className =
-                "no-products";
-
-            message.textContent =
-                "За заданими параметрами оправ не знайдено.";
-
-            productsContainer.appendChild(message);
+            noProducts.style.display = "none";
 
         }
 
     }
 
 
-    function sortProducts(products) {
-
-        const sort =
-            sortFilter.value;
-
-
-        products.sort((a, b) => {
-
-            const priceA =
-                Number(a.dataset.price);
-
-            const priceB =
-                Number(b.dataset.price);
+    filterButton.addEventListener(
+        "click",
+        filterProducts
+    );
 
 
-            if (sort === "cheap") {
-                return priceA - priceB;
-            }
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
 
 
-            if (sort === "expensive") {
-                return priceB - priceA;
-            }
+    const categoryFromUrl =
+        urlParams.get("category");
 
 
-            if (sort === "new") {
-                return (
-                    Number(b.dataset.new) -
-                    Number(a.dataset.new)
-                );
-            }
+    if (
+        categoryFromUrl === "women" ||
+        categoryFromUrl === "men" ||
+        categoryFromUrl === "children"
+    ) {
 
-
-            return 0;
-
-        });
-
-
-        products.forEach(product => {
-
-            productsContainer.appendChild(product);
-
-        });
+        categoryFilter.value =
+            categoryFromUrl;
 
     }
 
 
-    categoryFilter.addEventListener(
-        "change",
-        filterProducts
-    );
-
-    brandFilter.addEventListener(
-        "change",
-        filterProducts
-    );
-
-    shapeFilter.addEventListener(
-        "change",
-        filterProducts
-    );
-
-    minPrice.addEventListener(
-        "input",
-        filterProducts
-    );
-
-    maxPrice.addEventListener(
-        "input",
-        filterProducts
-    );
-
-    sortFilter.addEventListener(
-        "change",
-        filterProducts
-    );
+    filterProducts();
 
 </script>
 
 </body>
 </html>
+
