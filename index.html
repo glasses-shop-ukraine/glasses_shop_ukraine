@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GLASSES SHOP UKRAINE — Оптика</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f2ec;
+            color: #171717;
+        }
+
+        /* ШАПКА */
+        header {
+            background: #ebe7df;
+            padding: 18px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #d8d2c8;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .brand-name {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            opacity: 0.55;
+        }
+
+        /* ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            background: #f5f2ec;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666158;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #171717;
+            color: white;
+            text-decoration: none;
+            padding: 16px 34px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #514d46;
+        }
+
+        /* КАТЕГОРИИ */
+        .categories {
+            padding: 80px 6%;
+            background: #ebe7df;
+            text-align: center;
+        }
+
+        .categories h2 {
+            font-size: 34px;
+            font-weight: 400;
+            margin-bottom: 45px;
+        }
+
+        .category-list {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            background: #f8f6f2;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #171717;
+            font-size: 21px;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            border: 1px solid #ddd7ce;
+        }
+
+        .category:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* О НАС */
+        .about {
+            padding: 80px 20px;
+            text-align: center;
+            background: #f5f2ec;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #666158;
+            line-height: 1.7;
+        }
+
+        /* ФУТЕР */
+        footer {
+            background: #171717;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #c8c5bf;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* ТЕЛЕФОН */
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .hero {
+                min-height: 430px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .category-list {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ШАПКА -->
+<header>
+
+    <div class="brand">
+
+        <img src="images/logo.jpg" alt="GLASSES SHOP UKRAINE">
+
+        <div class="brand-name">
+            GLASSES SHOP UKRAINE
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="#">Головна</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">Про нас</a>
+        <a href="#contacts">Контакти</a>
+    </nav>
+
+</header>
+
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Оправи, які<br>
+            підкреслюють вас
+        </h1>
+
+        <p>
+            Оберіть свою ідеальну оправу
+            у каталозі GLASSES SHOP UKRAINE
+        </p>
+
+        <a href="#catalog" class="button">
+            ПЕРЕГЛЯНУТИ КАТАЛОГ
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- КАТАЛОГ -->
+<section class="categories" id="catalog">
+
+    <h2>Каталог оправ</h2>
+
+    <div class="category-list">
+
+        <a href="#" class="category">
+            Жіночі оправи
+        </a>
+
+        <a href="#" class="category">
+            Чоловічі оправи
+        </a>
+
+        <a href="#" class="category">
+            Дитячі оправи
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- О НАС -->
+<section class="about" id="about">
+
+    <h2>GLASSES SHOP UKRAINE</h2>
+
+    <p>
+        Стильні оправи для всієї родини.
+        Обирайте модель, яка підкреслить вашу
+        індивідуальність та комфорт.
+    </p>
+
+</section>
+
+
+<!-- ФУТЕР -->
+<footer id="contacts">
+
+    <h3>GLASSES SHOP UKRAINE</h3>
+
+    <p>Оптика та стильні оправи</p>
+
+    <p>Україна</p>
+
+</footer>
+
+</body>
+</html>

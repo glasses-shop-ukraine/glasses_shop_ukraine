@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Каталог — GLASSES SHOP UKRAINE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f2ec;
+            color: #171717;
+        }
+
+        header {
+            background: #ebe7df;
+            padding: 18px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #d8d2c8;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .brand-name {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            opacity: 0.55;
+        }
+
+        .catalog-header {
+            text-align: center;
+            padding: 65px 20px 35px;
+        }
+
+        .catalog-header h1 {
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .catalog-header p {
+            color: #666158;
+            font-size: 16px;
+        }
+
+        .filters {
+            max-width: 1250px;
+            margin: 0 auto 25px;
+            padding: 25px;
+            background: #ebe7df;
+            border: 1px solid #d8d2c8;
+        }
+
+        .filters-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 7px;
+            color: #555149;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cfc9bf;
+            background: #faf9f6;
+            color: #171717;
+            font-size: 14px;
+            outline: none;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #171717;
+        }
+
+        .price-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sorting {
+            max-width: 1250px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .sorting select {
+            max-width: 250px;
+        }
+
+        .products {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: #faf9f6;
+            border: 1px solid #ded9d0;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            height: 280px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 13px;
+            color: #777168;
+            margin-bottom: 7px;
+        }
+
+        .product-name {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .product-link {
+            color: #171717;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #171717;
+            padding-bottom: 3px;
+        }
+
+        .no-products {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #666158;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #171717;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #c8c5bf;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .filter-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters,
+            .sorting {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .catalog-header h1 {
+                font-size: 34px;
+            }
+
+            .filter-row {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .sorting {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sorting select {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <img
+            src="Images/logo.jpg"
+            alt="GLASSES SHOP UKRAINE"
+        >
+
+        <div class="brand-name">
+            GLASSES SHOP UKRAINE
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Головна
+        </a>
+
+        <a href="catalog.html">
+            Каталог
+        </a>
+
+        <a href="index.html#about">
+            Про нас
+        </a>
+
+        <a href="index.html#contacts">
+            Контакти
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="catalog-header">
+
+    <h1>Каталог оправ</h1>
+
+    <p>
+        Оберіть оправу за категорією, брендом, формою та ціною
+    </p>
+
+</section>
+
+
+<section class="filters">
+
+    <div class="filters-title">
+        Фільтри
+    </div>
+
+    <div class="filter-row">
+
+        <div class="filter-group">
+
+            <label>Категорія</label>
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    Усі категорії
+                </option>
+
+                <option value="women">
+                    Жіночі оправи
+                </option>
+
+                <option value="men">
+                    Чоловічі оправи
+                </option>
+
+                <option value="children">
+                    Дитячі оправи
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label>Бренд</label>
+
+            <select id="brandFilter">
+
+                <option value="all">
+                    Усі бренди
+                </option>
+
+                <option value="Ovvio">
+                    Ovvio
+                    <option value="Di Marca">Di Marca</option>
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label>Форма</label>
+
+            <select id="shapeFilter">
+
+                <option value="all">
+                    Усі форми
+                </option>
+
+                <option value="Котяче око">
+                    Котяче око
+                </option>
+
+                <option value="Кругла">
+                    Кругла
+                </option>
+
+                <option value="Квадратна">
+                    Квадратна
+                </option>
+
+                <option value="Прямокутна">
+                    Прямокутна
+                </option>
+
+                <option value="Овальна">
+                    Овальна
+                </option>
+
+                <option value="Авіатор">
+                    Авіатор
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <label>Ціна, грн</label>
+
+            <div class="price-row">
+
+                <input
+                    type="number"
+                    id="minPrice"
+                    placeholder="Від"
+                >
+
+                <input
+                    type="number"
+                    id="maxPrice"
+                    placeholder="До"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="sorting">
+
+    <span id="resultCount">
+        Знайдено оправ: 1
+    </span>
+
+    <select id="sortFilter">
+
+        <option value="default">
+            Сортування
+        </option>
+
+        <option value="cheap">
+            Від дешевших до дорожчих
+        </option>
+
+        <option value="expensive">
+            Від дорожчих до дешевших
+        </option>
+
+        <option value="new">
+            Спочатку нові
+        </option>
+
+    </select>
+
+</div>
+
+
+<section class="products" id="products">
+
+
+    <!-- НАША ПЕРША ОПРАВА -->
+
+    <article
+        class="product"
+        data-category="women"
+        data-brand="Ovvio"
+        data-shape="Котяче око"
+        data-price="500"
+        data-new="1"
+    >
+
+        <div class="product-image">
+
+            <img
+                src="Images/ovvio-1469-c3.jpg"
+                alt="Ovvio 1469 C3"
+            >
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div class="product-brand">
+                Ovvio Perfezione
+            </div>
+
+            <div class="product-name">
+                Ovvio 1469 C3
+            </div>
+
+            <div class="product-price">
+                500 грн
+            </div>
+
+            <a
+                href="product-ovvio-1469.html"
+                class="product-link"
+            >
+                Детальніше →
+            </a>
+
+        </div>
+
+    </article>
+<!-- ДРУГАЯ ОПРАВА -->
+
+<article
+    class="product"
+    data-category="women"
+    data-brand="Di Marca"
+    data-shape="Котяче око"
+    data-price="510"
+    data-new="1"
+>
+
+    <div class="product-image">
+
+        <img
+            src="images/di marca p80161 c3.jpg"
+            alt="Di Marca P80161 C3"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <div class="product-brand">
+            Di Marca
+        </div>
+
+        <div class="product-name">
+            P80161 C3
+        </div>
+
+        <div class="product-price">
+            510 грн
+        </div>
+
+        <a
+            href="product-di marca p80161 c3.html"
+            class="product-link"
+        >
+            Детальніше →
+        </a>
+
+    </div>
+
+</article>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        GLASSES SHOP UKRAINE
+    </h3>
+
+    <p>
+        Оптика та стильні оправи
+    </p>
+
+    <p>
+        Україна
+    </p>
+
+</footer>
+
+
+<script>
+
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    const brandFilter =
+        document.getElementById("brandFilter");
+
+    const shapeFilter =
+        document.getElementById("shapeFilter");
+
+    const minPrice =
+        document.getElementById("minPrice");
+
+    const maxPrice =
+        document.getElementById("maxPrice");
+
+    const sortFilter =
+        document.getElementById("sortFilter");
+
+    const productsContainer =
+        document.getElementById("products");
+
+    const resultCount =
+        document.getElementById("resultCount");
+
+
+    function filterProducts() {
+
+        const category =
+            categoryFilter.value;
+
+        const brand =
+            brandFilter.value;
+
+        const shape =
+            shapeFilter.value;
+
+        const min =
+            Number(minPrice.value) || 0;
+
+        const max =
+            Number(maxPrice.value) || Infinity;
+
+
+        const products =
+            Array.from(
+                document.querySelectorAll(".product")
+            );
+
+
+        let visibleProducts = [];
+
+
+        products.forEach(product => {
+
+            const productCategory =
+                product.dataset.category;
+
+            const productBrand =
+                product.dataset.brand;
+
+            const productShape =
+                product.dataset.shape;
+
+            const productPrice =
+                Number(product.dataset.price);
+
+
+            const categoryMatch =
+                category === "all" ||
+                productCategory === category;
+
+
+            const brandMatch =
+                brand === "all" ||
+                productBrand === brand;
+
+
+            const shapeMatch =
+                shape === "all" ||
+                productShape === shape;
+
+
+            const priceMatch =
+                productPrice >= min &&
+                productPrice <= max;
+
+
+            if (
+                categoryMatch &&
+                brandMatch &&
+                shapeMatch &&
+                priceMatch
+            ) {
+
+                product.style.display = "";
+
+                visibleProducts.push(product);
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+
+        sortProducts(visibleProducts);
+
+
+        resultCount.textContent =
+            "Знайдено оправ: " +
+            visibleProducts.length;
+
+
+        const oldMessage =
+            document.querySelector(".no-products");
+
+
+        if (oldMessage) {
+            oldMessage.remove();
+        }
+
+
+        if (visibleProducts.length === 0) {
+
+            const message =
+                document.createElement("div");
+
+            message.className =
+                "no-products";
+
+            message.textContent =
+                "За заданими параметрами оправ не знайдено.";
+
+            productsContainer.appendChild(message);
+
+        }
+
+    }
+
+
+    function sortProducts(products) {
+
+        const sort =
+            sortFilter.value;
+
+
+        products.sort((a, b) => {
+
+            const priceA =
+                Number(a.dataset.price);
+
+            const priceB =
+                Number(b.dataset.price);
+
+
+            if (sort === "cheap") {
+                return priceA - priceB;
+            }
+
+
+            if (sort === "expensive") {
+                return priceB - priceA;
+            }
+
+
+            if (sort === "new") {
+                return (
+                    Number(b.dataset.new) -
+                    Number(a.dataset.new)
+                );
+            }
+
+
+            return 0;
+
+        });
+
+
+        products.forEach(product => {
+
+            productsContainer.appendChild(product);
+
+        });
+
+    }
+
+
+    categoryFilter.addEventListener(
+        "change",
+        filterProducts
+    );
+
+    brandFilter.addEventListener(
+        "change",
+        filterProducts
+    );
+
+    shapeFilter.addEventListener(
+        "change",
+        filterProducts
+    );
+
+    minPrice.addEventListener(
+        "input",
+        filterProducts
+    );
+
+    maxPrice.addEventListener(
+        "input",
+        filterProducts
+    );
+
+    sortFilter.addEventListener(
+        "change",
+        filterProducts
+    );
+
+</script>
+
+</body>
+</html>
