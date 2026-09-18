@@ -595,9 +595,9 @@
                 Number(product.dataset.price);
 
 
-            const categoryMatch =
-                category === "all" ||
-                productCategory === category;
+           const categoryMatch =
+    category === "all" ||
+    productCategory.split(" ").includes(category);
 
 
             const brandMatch =
