@@ -227,6 +227,7 @@
                     <option value="women">Жіночі оправи</option>
                     <option value="men">Чоловічі оправи</option>
                     <option value="children">Дитячі оправи</option>
+                    <option value="unisex">Унісекс оправи</option>
                 </select>
             </div>
 
@@ -826,9 +827,13 @@ const matchingProducts = [];
                 Number(product.dataset.price);
 
 
-           const categoryMatch =
+           const categories = productCategory.split(" ");
+
+const categoryMatch =
     category === "all" ||
-    productCategory.split(" ").includes(category);
+    categories.includes(category) ||
+    (category === "women" && categories.includes("unisex")) ||
+    (category === "men" && categories.includes("unisex"));
 
 
             const brandMatch =
