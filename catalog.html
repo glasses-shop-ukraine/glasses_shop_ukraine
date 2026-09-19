@@ -595,13 +595,14 @@
 
     const products =
         document.querySelectorAll(".product");
-
+const productsPerPage = 16;
+let currentPage = 1;
     const noProducts =
         document.getElementById("noProducts");
 
 
     function filterProducts() {
-
+currentPage = 1;
         const category =
             categoryFilter.value;
 
@@ -625,7 +626,7 @@
 
 
         let visibleProducts = 0;
-
+const matchingProducts = [];
 
         products.forEach(function(product) {
 
@@ -670,7 +671,7 @@
             ) {
 
                 product.style.display = "block";
-
+matchingProducts.push(product);
                 visibleProducts++;
 
             } else {
@@ -680,8 +681,21 @@
             }
 
         });
+matchingProducts.forEach(function(product) {
+    product.style.display = "none";
+});
 
+const start = (currentPage - 1) * productsPerPage;
+const end = start + productsPerPage;
 
+matchingProducts
+    .slice(start, end)
+    .forEach(function(product) {
+        product.style.display = "block";
+    });
+createPagination(
+    Math.ceil(matchingProducts.length / productsPerPage)
+);
         if (visibleProducts === 0) {
 
             noProducts.style.display = "block";
@@ -724,7 +738,64 @@
 
 
     filterProducts();
+function createPagination(totalPages) {
 
+    let pagination =
+        document.getElementById("pagination");
+
+    if (!pagination) {
+
+        pagination =
+            document.createElement("div");
+
+        pagination.id = "pagination";
+        pagination.style.textAlign = "center";
+        pagination.style.margin = "30px 0";
+
+        noProducts.parentNode.after(pagination);
+    }
+
+    pagination.innerHTML = "";
+
+    if (totalPages <= 1) {
+        return;
+    }
+
+    for (let page = 1; page <= totalPages; page++) {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = page;
+
+        button.style.margin = "5px";
+        button.style.padding = "8px 14px";
+        button.style.cursor = "pointer";
+        button.style.borderRadius = "8px";
+        button.style.border = "1px solid #a88b72";
+        button.style.background = "#fffaf5";
+        button.style.color = "#4b3a2f";
+
+        if (page === currentPage) {
+            button.style.fontWeight = "bold";
+        }
+
+        button.addEventListener("click", function() {
+
+            currentPage = page;
+
+            filterProducts();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+        pagination.appendChild(button);
+    }
+}
 </script>
 
 </body>
