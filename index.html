@@ -219,30 +219,6 @@
                 min-height: 180px;
             }
         }
-        .category-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.category-card {
-    display: block;
-    width: 100%;
-    padding: 28px 20px;
-    background: #f3eadc;
-    border-radius: 12px;
-    text-decoration: none;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.category-card h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 500;
-    color: #5a4636;
-}
     </style>
 </head>
 
@@ -297,27 +273,24 @@
 
 <!-- КАТАЛОГ -->
 <section class="categories" id="catalog">
-<h2>Каталог</h2>
 
-    <p>Оберіть категорію:</p>
+    <h2>Каталог оправ</h2>
 
-    <div class="category-buttons">
+    <div class="category-list">
 
-        <a href="catalog.html" class="category-card">
-            <h3>Жіночі оправи</h3>
+       <a href="catalog.html?category=women" class="category">
+            Жіночі оправи
         </a>
 
-        <a href="catalog.html" class="category-card">
-            <h3>Чоловічі оправи</h3>
+        <a href="catalog.html?category=men" class="category">
+            Чоловічі оправи
         </a>
 
-        <a href="catalog.html" class="category-card">
-            <h3>Дитячі оправи</h3>
+        <a href="catalog.html?category=children" class="category">
+            Дитячі оправи
         </a>
 
     </div>
-
-</section>
 
 <!-- О НАС -->
 <section class="about" id="about">
