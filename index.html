@@ -389,6 +389,82 @@
     <p>Україна</p>
 
 </footer>
+<script>
+async function searchSite() {
 
+    const input = document.getElementById("siteSearch");
+    const results = document.getElementById("searchResults");
+
+    const query = input.value.trim().toLowerCase();
+
+    results.innerHTML = "";
+
+    if (query === "") {
+        results.innerHTML = "<p>Введіть слово для пошуку.</p>";
+        return;
+    }
+
+    try {
+
+        const response = await fetch("catalog.html");
+        const html = await response.text();
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const products = doc.querySelectorAll(".product");
+
+        let found = 0;
+
+        products.forEach(function(product) {
+
+            const text = product.textContent.toLowerCase();
+
+            if (text.includes(query)) {
+
+                const title = product.querySelector("h2");
+
+                const link = product.querySelector(".product-link");
+
+                if (title && link) {
+
+                    const item = document.createElement("div");
+
+                    item.style.margin = "15px 0";
+                    item.style.padding = "15px";
+                    item.style.background = "#ebe7df";
+                    item.style.borderRadius = "10px";
+
+                    item.innerHTML = 
+                        <strong>${title.textContent}</strong><br>
+                        <a href="catalog.html" style="color:#6f5a47;">
+                            Переглянути →
+                        </a>
+                    ;
+
+                    results.appendChild(item);
+
+                    found++;
+                }
+            }
+
+        });
+
+        if (found === 0) {
+
+            results.innerHTML =
+                "<p>Нічого не знайдено.</p>";
+
+        }
+
+    } catch (error) {
+
+        results.innerHTML =
+            "<p>Не вдалося виконати пошук.</p>";
+
+        console.error(error);
+    }
+}
+</script>
 </body>
 </html>
