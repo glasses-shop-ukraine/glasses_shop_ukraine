@@ -246,20 +246,6 @@
             </div>
 
 
-            <div class="filter-group">
-                <label for="shapeFilter">Форма</label>
-
-                <select id="shapeFilter">
-                    <option value="all">Усі форми</option>
-                    <option value="Котяче око">Котяче око</option>
-                    <option value="Кругла">Кругла</option>
-                    <option value="Квадратна">Квадратна</option>
-                    <option value="Прямокутна">Прямокутна</option>
-                    <option value="Овальна">Овальна</option>
-                    <option value="Авіатор">Авіатор</option>
-                </select>
-            </div>
-
 
             <div class="filter-group">
                 <label for="minPrice">Ціна від</label>
@@ -1213,9 +1199,6 @@
     const brandFilter =
         document.getElementById("brandFilter");
 
-    const shapeFilter =
-        document.getElementById("shapeFilter");
-
     const minPrice =
         document.getElementById("minPrice");
 
@@ -1239,9 +1222,6 @@ let currentPage = 1;
 
         const brand =
             brandFilter.value;
-
-        const shape =
-            shapeFilter.value;
 
 
         const min =
@@ -1267,8 +1247,6 @@ const matchingProducts = [];
             const productBrand =
                 product.dataset.brand;
 
-            const productShape =
-                product.dataset.shape;
 
             const productPrice =
                 Number(product.dataset.price);
@@ -1287,10 +1265,6 @@ const categoryMatch =
                 brand === "all" ||
                 productBrand === brand;
 
-
-            const shapeMatch =
-                shape === "all" ||
-                productShape === shape;
 
 
             const priceMatch =
