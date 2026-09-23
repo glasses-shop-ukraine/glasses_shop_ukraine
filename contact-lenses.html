@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Контактні лінзи — GLASSES SHOP UKRAINE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4eee5;
+            color: #4f4035;
+        }
+
+        header {
+            background: #e8dccb;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            width: 150px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4f4035;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 400;
+            margin-bottom: 50px;
+        }
+
+        .lens-section {
+            background: #eadfce;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .lens-section h2 {
+            margin-top: 0;
+            font-size: 26px;
+            font-weight: 400;
+        }
+
+        .lens-section p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 13px 25px;
+            background: #4f4035;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .contact-button:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">
+        <img
+            src="images/logo.jpg"
+            alt="GLASSES SHOP UKRAINE"
+        >
+    </a>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Оправи</a>
+        <a href="contact-lenses.html">Контактні лінзи</a>
+        <a href="index.html#about">Про нас</a>
+        <a href="index.html#contacts">Контакти</a>
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <h1>Контактні лінзи</h1>
+
+    <section class="lens-section">
+
+        <h2>Контактні лінзи для вашого комфорту</h2>
+
+        <p>
+            У нашій оптиці ви можете підібрати контактні лінзи
+            відповідно до ваших потреб.
+        </p>
+
+        <p>
+            Для уточнення наявності, брендів та актуальних цін
+            звертайтеся до нас.
+        </p>
+
+        <a
+            href="https://www.instagram.com/glasses_shop_ukraine"
+            class="contact-button"
+            target="_blank"
+        >
+            Уточнити наявність
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>
