@@ -1455,7 +1455,7 @@ data-type="clip-on"
     const products =
         document.querySelectorAll(".product");
 const productsPerPage = 16;
-let currentPage = 1;
+let currentPage = Number(new URLSearchParams(window.location.search).get("page")) || 1;
     const noProducts =
         document.getElementById("noProducts");
 
@@ -1635,16 +1635,20 @@ function createPagination(totalPages) {
             button.style.fontWeight = "bold";
         }
 
-        button.addEventListener("click", function() {
+       button.addEventListener("click", function() {
 
-            currentPage = page;
+    currentPage = page;
 
-            filterProducts();
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", currentPage);
+    window.history.replaceState({}, "", url);
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    filterProducts();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
         });
 
