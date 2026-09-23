@@ -1286,7 +1286,8 @@ let currentPage = 1;
 
         const brand =
             brandFilter.value;
-
+const urlParams = new URLSearchParams(window.location.search);
+const selectedType = urlParams.get("type");
 
         const min =
             minPrice.value === ""
@@ -1310,7 +1311,8 @@ const matchingProducts = [];
 
             const productBrand =
                 product.dataset.brand;
-
+const productType = product.dataset.type;
+const typeMatch = !selectedType || productType === selectedType;
 
             const productPrice =
                 Number(product.dataset.price);
@@ -1336,11 +1338,12 @@ const categoryMatch =
                 productPrice <= max;
 
 
-            if (
-                categoryMatch &&
-                brandMatch &&
-                priceMatch
-            ) {
+           if (
+    categoryMatch &&
+    brandMatch &&
+    priceMatch &&
+    typeMatch
+) {
 
                 product.style.display = "block";
 matchingProducts.push(product);
