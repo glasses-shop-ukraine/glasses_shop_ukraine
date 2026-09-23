@@ -45,7 +45,55 @@
             color: #4f4035;
             font-weight: bold;
         }
+.dropdown {
+    position: relative;
+}
 
+.dropdown-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-title span {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 8px 10px;
+    margin: -8px -10px;
+    line-height: 1;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 230px;
+    background: #f4eee5;
+    border: 1px solid #cbbba5;
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #4f4035;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #e8dccb;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
         nav a:hover {
             text-decoration: underline;
         }
@@ -200,12 +248,28 @@
         >
     </a>
 
-    <nav>
-        <a href="index.html">Головна</a>
-        <a href="catalog.html">Каталог</a>
-        <a href="index.html#about">Про нас</a>
-        <a href="index.html#contacts">Контакти</a>
-    </nav>
+   <nav>
+    <a href="index.html">Головна</a>
+
+    <div class="dropdown">
+        <div class="dropdown-title">
+            <a href="catalog.html">Оправи</a>
+            <span>⌄</span>
+        </div>
+
+        <div class="dropdown-menu">
+            <a href="catalog.html?category=women">Жіночі оправи</a>
+            <a href="catalog.html?category=men">Чоловічі оправи</a>
+            <a href="catalog.html?category=children">Дитячі оправи</a>
+            <a href="catalog.html?type=rimless">Безобідкові</a>
+            <a href="catalog.html?type=clip-on">Оправи із сонцезахисними накладками</a>
+        </div>
+    </div>
+
+    <a href="contact-lenses.html">Контактні лінзи</a>
+    <a href="index.html#about">Про нас</a>
+    <a href="index.html#contacts">Контакти</a>
+</nav>
 
 </header>
 
