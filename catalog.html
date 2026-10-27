@@ -1696,6 +1696,8 @@ let currentPage = Number(new URLSearchParams(window.location.search).get("page")
 
         const brand =
             brandFilter.value;
+        const material =
+    document.getElementById("materialFilter").value;
 const urlParams = new URLSearchParams(window.location.search);
 const selectedType = urlParams.get("type");
 
@@ -1721,6 +1723,11 @@ const matchingProducts = [];
 
             const productBrand =
                 product.dataset.brand;
+            const productMaterial =
+    product.dataset.material;
+
+const materialMatch =
+    !material || productMaterial === material;
 const productType = product.dataset.type;
 const typeMatch = !selectedType || productType === selectedType;
 
@@ -1747,10 +1754,10 @@ const categoryMatch =
                 productPrice >= min &&
                 productPrice <= max;
 
-
-           if (
+if (
     categoryMatch &&
     brandMatch &&
+    materialMatch &&
     priceMatch &&
     typeMatch
 ) {
@@ -1799,7 +1806,10 @@ createPagination(
         filterProducts
     );
 
-
+document.getElementById("materialFilter").addEventListener(
+    "change",
+    filterProducts
+);
     const urlParams =
         new URLSearchParams(
             window.location.search
@@ -1865,7 +1875,7 @@ function createPagination(totalPages) {
             button.style.fontWeight = "bold";
         }
 
-       button.addEventListener("click", function() {
+         button.addEventListener("click", function() {
 
     currentPage = page;
 
