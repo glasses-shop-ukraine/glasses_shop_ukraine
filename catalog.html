@@ -1833,11 +1833,17 @@ createPagination(
 
     }
 
+filterButton.addEventListener("click", function() {
 
-    filterButton.addEventListener(
-        "click",
-        filterProducts
-    );
+    currentPage = 1;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", 1);
+    window.history.replaceState({}, "", url);
+
+    filterProducts();
+
+});
 
 document.getElementById("materialFilter").addEventListener(
     "change",
