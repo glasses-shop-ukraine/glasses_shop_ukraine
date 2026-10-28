@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Аксесуари для окулярів — GLASSES SHOP UKRAINE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4eee5;
+            color: #4f4035;
+        }
+
+        header {
+            background: #e8dccb;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            width: 150px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4f4035;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-title span {
+            font-size: 22px;
+            cursor: pointer;
+            padding: 8px 10px;
+            margin: -8px -10px;
+            line-height: 1;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 230px;
+            background: #f4eee5;
+            border: 1px solid #cbbba5;
+            border-radius: 8px;
+            padding: 8px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: #e8dccb;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .empty-message {
+            text-align: center;
+            background: #fffaf4;
+            border-radius: 15px;
+            padding: 50px 20px;
+            margin-top: 30px;
+            box-shadow: 0 3px 12px rgba(80, 60, 40, 0.10);
+            font-size: 17px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">
+        <img src="images/logo.jpg" alt="GLASSES SHOP UKRAINE">
+    </a>
+
+    <nav>
+        <a href="index.html">Головна</a>
+
+        <div class="dropdown">
+            <div class="dropdown-title">
+                <a href="catalog.html">Оправи</a>
+                <span>⌄</span>
+            </div>
+
+            <div class="dropdown-menu">
+                <a href="catalog.html?category=women">Жіночі оправи</a>
+                <a href="catalog.html?category=men">Чоловічі оправи</a>
+                <a href="catalog.html?category=children">Дитячі оправи</a>
+                <a href="catalog.html?type=rimless">Безобідкові</a>
+                <a href="catalog.html?type=clip-on">Оправи із сонцезахисними накладками</a>
+            </div>
+        </div>
+
+        <a href="contact-lenses.html">Контактні лінзи</a>
+        <a href="index.html#about">Про нас</a>
+        <a href="index.html#contacts">Контакти</a>
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <h1>Аксесуари для окулярів</h1>
+    <div class="empty-message">
+        <p>Незабаром тут з'являться наші аксесуари для окулярів.</p>
+    </div>
+
+</main>
+
+</body>
+</html>
