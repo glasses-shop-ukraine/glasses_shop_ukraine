@@ -295,27 +295,35 @@
                 gap: 10px;
             }
 
-          .hero {
+         .hero {
     min-height: 430px;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 30px 20px;
+    width: calc(100% - 40px);
 }
 
             .hero h1 {
                 font-size: 36px;
             }
-            .hero-image {
+          .hero-content {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-image {
     width: 100%;
     margin-top: 15px;
+    justify-content: center;
 }
 
 .hero-image img {
+    width: 100%;
     max-width: 280px;
     height: 150px;
-}
-.hero-content {
-    width: 100%;
+    object-fit: contain;
 }
             .hero p {
                 font-size: 16px;
