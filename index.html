@@ -5,96 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>GLASSES SHOP UKRAINE — Оптика</title>
-/* КАРТОЧКИ НА ГЛАВНОЙ */
 
-.home-categories {
-    max-width: 1100px;
-    margin: 45px auto;
-    padding: 0 20px;
-}
-
-.home-categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.home-category-card,
-.home-category-card:visited,
-.home-category-card:hover,
-.home-category-card:active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-    padding: 25px;
-    background: #e8dccb;
-    color: #4f4035;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(79, 64, 53, 0.10);
-    transition: 0.3s;
-}
-
-.home-category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 7px 18px rgba(79, 64, 53, 0.16);
-}
-
-.home-category-card h2,
-.home-category-card span {
-    color: #4f4035;
-    text-decoration: none;
-}
-
-.home-category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 7px 18px rgba(79, 64, 53, 0.16);
-}
-
-.category-image-space {
-    width: 100%;
-    height: 145px;
-    margin-bottom: 15px;
-}
-
-.home-category-card h2 {
-    font-size: 20px;
-    margin: 5px 0 12px;
-}
-
-.home-category-card span {
-    font-size: 14px;
-    text-decoration: underline;
-}
-
-/* ДЛЯ ТЕЛЕФОНОВ */
-
-@media (max-width: 600px) {
-    .home-categories {
-        padding: 0 12px;
-        margin: 25px auto;
-    }
-
-    .home-categories-grid {
-        gap: 12px;
-    }
-
-    .home-category-card {
-        min-height: 210px;
-        padding: 12px;
-    }
-
-    .category-image-space {
-        height: 105px;
-    }
-
-    .home-category-card h2 {
-        font-size: 15px;
-    }
-}
     <style>
         * {
             box-sizing: border-box;
@@ -105,17 +16,17 @@
         body {
             font-family: Arial, sans-serif;
             background: #f4eee5;
-            color: #171717;
+            color: #4f4035;
         }
 
         /* ШАПКА */
         header {
-            background: #f4eee5‎;
+            background: #f4eee5;
             padding: 18px 6%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #f4eee5‎;
+            border-bottom: 1px solid #e8dccb;
         }
 
         .brand {
@@ -141,55 +52,57 @@
             display: flex;
             gap: 30px;
         }
-.dropdown {
-    position: relative;
-}
 
-.dropdown-title {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
+        .dropdown {
+            position: relative;
+        }
 
-.dropdown-title span {
-    font-size: 22px;
-    cursor: pointer;
-    padding: 8px 10px;
-    margin: -8px -10px;
-    line-height: 1;
-}
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 230px;
-    background: #f4eee5;
-    border: 1px solid #cbbba5;
-    border-radius: 8px;
-    padding: 8px 0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    z-index: 1000;
-}
+        .dropdown-title span {
+            font-size: 22px;
+            cursor: pointer;
+            padding: 8px 10px;
+            margin: -8px -10px;
+            line-height: 1;
+        }
 
-.dropdown-menu a {
-    display: block;
-    padding: 10px 16px;
-    color: #4f4035;
-    text-decoration: none;
-    font-size: 14px;
-    white-space: nowrap;
-}
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 230px;
+            background: #f4eee5;
+            border: 1px solid #cbbba5;
+            border-radius: 8px;
+            padding: 8px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+        }
 
-.dropdown-menu a:hover {
-    background: #e8dccb;
-    opacity: 1;
-}
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            color: #4f4035;
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+        .dropdown-menu a:hover {
+            background: #e8dccb;
+            opacity: 1;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
         nav a {
             color: #4f4035;
             text-decoration: none;
@@ -208,11 +121,12 @@
             justify-content: center;
             text-align: center;
             padding: 70px 20px;
-            background: #f4eee5‎;
+            background: #f4eee5;
         }
 
         .hero-content {
-            max-width: 750px;
+            max-width: 1100px;
+            width: 100%;
         }
 
         .hero h1 {
@@ -225,64 +139,84 @@
 
         .hero p {
             font-size: 18px;
-            color: #f4eee5‎;
+            color: #4f4035;
             margin-bottom: 35px;
         }
 
-       .button {
-    display: inline-block;
-    background: #4f4035;
-    color: white;
-    text-decoration: none;
-    padding: 16px 34px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    border-radius: 8px;
-}
+        .button {
+            display: inline-block;
+            background: #4f4035;
+            color: white;
+            text-decoration: none;
+            padding: 16px 34px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
 
         .button:hover {
-            background: #f4eee5‎;
+            background: #6a5748;
         }
 
-        /* КАТЕГОРИИ */
-        .categories {
-            padding: 80px 6%;
-            background: #f4eee5‎;
-            text-align: center;
+        /* КАРТОЧКИ НА ГЛАВНОЙ */
+        .home-categories {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto 60px;
+            padding: 0 20px;
         }
 
-        .categories h2 {
-            font-size: 34px;
-            font-weight: 400;
-            margin-bottom: 45px;
-        }
-
-        .category-list {
-            max-width: 1150px;
-            margin: auto;
+        .home-categories-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+        .home-category-card,
+        .home-category-card:visited,
+        .home-category-card:active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+            min-height: 280px;
+            padding: 25px;
+            background: #e8dccb;
+            color: #4f4035;
+            text-decoration: none;
+            text-align: center;
+            border: 1px solid #d8c8b3;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(79, 64, 53, 0.10);
+            transition: 0.3s;
         }
 
-        .category {
-    background: #f4eee5;
-    min-height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #4f4035;
-    font-size: 21px;
-    letter-spacing: 0.5px;
-    transition: 0.3s;
-    border: 1px solid #cbbba5;
-    border-radius: 12px;
-}
-        .category:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        .home-category-card:hover {
+            background: #e3d5c2;
+            color: #4f4035;
+            transform: translateY(-4px);
+            box-shadow: 0 7px 18px rgba(79, 64, 53, 0.16);
+        }
+
+        .category-image-space {
+            width: 100%;
+            height: 145px;
+            margin-bottom: 15px;
+        }
+
+        .home-category-card h2 {
+            color: #4f4035;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 5px 0 12px;
+        }
+
+        .home-category-card span {
+            color: #4f4035;
+            font-size: 14px;
+            text-decoration: none;
         }
 
         /* О НАС */
@@ -298,11 +232,19 @@
             margin-bottom: 20px;
         }
 
+        .about h3 {
+            margin: 25px 0 15px;
+        }
+
         .about p {
             max-width: 650px;
-            margin: auto;
+            margin: 20px auto;
             color: #666158;
             line-height: 1.7;
+        }
+
+        .about a {
+            color: #4f4035;
         }
 
         /* ФУТЕР */
@@ -327,18 +269,17 @@
 
         /* ТЕЛЕФОН */
         @media (max-width: 700px) {
-
             header {
                 flex-direction: column;
                 gap: 18px;
             }
 
-          nav {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+            }
 
             .hero {
                 min-height: 430px;
@@ -352,12 +293,27 @@
                 font-size: 16px;
             }
 
-            .category-list {
-                grid-template-columns: 1fr;
+            .home-categories {
+                padding: 0 12px;
+                margin-bottom: 35px;
             }
 
-            .category {
-                min-height: 180px;
+            .home-categories-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .home-category-card {
+                min-height: 210px;
+                padding: 12px;
+            }
+
+            .category-image-space {
+                height: 105px;
+            }
+
+            .home-category-card h2 {
+                font-size: 15px;
             }
         }
     </style>
@@ -378,28 +334,29 @@
 
     </div>
 
-  <nav>
-    <a href="#">Головна</a>
-    <div class="dropdown">
-    <div class="dropdown-title">
-        <a href="catalog.html">Оправи</a>
-        <span>⌄</span>
-    </div>
+    <nav>
+        <a href="#">Головна</a>
 
-    <div class="dropdown-menu">
-        <a href="catalog.html?category=women">Жіночі оправи</a>
-        <a href="catalog.html?category=men">Чоловічі оправи</a>
-        <a href="catalog.html?category=children">Дитячі оправи</a>
-        <a href="catalog.html?type=rimless">Безобідкові</a>
-        <a href="catalog.html?type=clip-on">Оправи із сонцезахисними накладками</a>
-    </div>
-</div>
-    <a href="contact-lenses.html">Контактні лінзи</a>
-    <a href="#about">Про нас</a>
-</nav>
+        <div class="dropdown">
+            <div class="dropdown-title">
+                <a href="catalog.html">Оправи</a>
+                <span>⌄</span>
+            </div>
+
+            <div class="dropdown-menu">
+                <a href="catalog.html?category=women">Жіночі оправи</a>
+                <a href="catalog.html?category=men">Чоловічі оправи</a>
+                <a href="catalog.html?category=children">Дитячі оправи</a>
+                <a href="catalog.html?type=rimless">Безобідкові</a>
+                <a href="catalog.html?type=clip-on">Оправи із сонцезахисними накладками</a>
+            </div>
+        </div>
+
+        <a href="contact-lenses.html">Контактні лінзи</a>
+        <a href="#about">Про нас</a>
+    </nav>
 
 </header>
-
 
 <!-- ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
@@ -417,8 +374,8 @@
         </p>
 
         <a href="catalog.html" class="button">
-    ПЕРЕГЛЯНУТИ КАТАЛОГ
-</a>
+            ПЕРЕГЛЯНУТИ КАТАЛОГ
+        </a>
 
     </div>
 
@@ -474,7 +431,6 @@
 
     <h2>Про нас</h2>
 
-
     <h3>📍 Наші оптики у Харкові</h3>
 
     <p>
@@ -490,7 +446,6 @@
     </p>
 
     <p>
-        
         <strong>Проспект Байрона, 1а</strong><br>
         Одеська, біля кола тролейбусів,
         жовто-синя вивіска<br><br>
@@ -504,7 +459,6 @@
     </p>
 
     <p>
-        
         <strong>Вулиця Чоботарська, 1</strong><br>
         Вхід з вулиці Різдвяна, 25<br>
         Біля метро «Центральний ринок»<br><br>
