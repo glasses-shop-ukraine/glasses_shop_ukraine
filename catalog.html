@@ -1845,10 +1845,17 @@ filterButton.addEventListener("click", function() {
 
 });
 
-document.getElementById("materialFilter").addEventListener(
-    "change",
-    filterProducts
-);
+document.getElementById("materialFilter").addEventListener("change", function() {
+
+    currentPage = 1;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", 1);
+    window.history.replaceState({}, "", url);
+
+    filterProducts();
+
+});
     const urlParams =
         new URLSearchParams(
             window.location.search
