@@ -53,46 +53,81 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         h1 {
             text-align: center;
             font-size: 38px;
             font-weight: 400;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
-        .lens-section {
-            background: #eadfce;
-            padding: 30px;
+        .products {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .product-card {
+            display: block;
+            max-width: 550px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 22px;
+            background: #fffaf4;
             border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .lens-section h2 {
-            margin-top: 0;
-            font-size: 26px;
-            font-weight: 400;
-        }
-
-        .lens-section p {
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        .contact-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 13px 25px;
-            background: #4f4035;
-            color: white;
+            box-shadow: 0 3px 12px rgba(80, 60, 40, 0.12);
             text-decoration: none;
-            border-radius: 8px;
+            color: #4f4035;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .contact-button:hover {
-            opacity: 0.85;
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(80, 60, 40, 0.18);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1e9dd;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 18px 0 5px;
+        }
+
+        .product-brand {
+            font-size: 14px;
+            color: #8d7863;
+            margin: 0 0 12px;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .quantity {
+            font-size: 15px;
+            color: #8d7863;
+            margin-top: 5px;
         }
 
         @media (max-width: 600px) {
@@ -105,11 +140,19 @@
             }
 
             .container {
-                padding: 40px 15px;
+                padding: 25px 15px;
             }
 
             h1 {
                 font-size: 30px;
+            }
+
+            .product-card {
+                padding: 15px;
+            }
+
+            .product-image {
+                height: 220px;
             }
         }
     </style>
@@ -120,10 +163,7 @@
 <header>
 
     <a href="index.html" class="logo">
-        <img
-            src="images/logo.jpg"
-            alt="GLASSES SHOP UKRAINE"
-        >
+        <img src="images/logo.jpg" alt="GLASSES SHOP UKRAINE">
     </a>
 
     <nav>
@@ -140,29 +180,29 @@
 
     <h1>Контактні лінзи</h1>
 
-    <section class="lens-section">
+    <div class="products">
 
-        <h2>Контактні лінзи для вашого комфорту</h2>
+        <a href="product-oxy.html" class="product-card">
+            <div class="product-image">
+                <img
+                    src="images/comfort-line-oxy.jpg"
+                    alt="OXY — контактні лінзи COMFORT LINE"
+                >
+            </div>
 
-        <p>
-            У нашій оптиці ви можете підібрати контактні лінзи
-            відповідно до ваших потреб.
-        </p>
+            <div class="product-name">
+                OXY
+            </div>
 
-        <p>
-            Для уточнення наявності, брендів та актуальних цін
-            звертайтеся до нас.
-        </p>
+            <p class="product-brand">COMFORT LINE</p>
 
-        <a
-            href="https://www.instagram.com/glasses_shop_ukraine"
-            class="contact-button"
-            target="_blank"
-        >
-            Уточнити наявність
+            <p class="price">870 грн</p>
+
+            <p class="quantity">за 3 шт.</p>
+
         </a>
 
-    </section>
+    </div>
 
 </main>
 
